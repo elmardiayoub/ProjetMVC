@@ -1,0 +1,96 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Table V04</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!--===============================================================================================-->
+    <!--===============================================================================================-->
+    <link href="~/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+    <!--===============================================================================================-->
+    <link href="~/fonts/font-awesome-4.7.0/css/font-awesome.min.css" rel="stylesheet" />
+    <!--===============================================================================================-->
+    <link rel="stylesheet" href="~/vendor/animate/animate.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" href="~/vendor/select2/select2.min.css">
+    <!--===============================================================================================-->
+    <link href="~/vendor/perfect-scrollbar/perfect-scrollbar.css" rel="stylesheet" />
+    <!--===============================================================================================-->
+    <link rel="stylesheet" href="~/css/util.css">
+    <link rel="stylesheet" href="~/css/main.css">
+
+    <!--===============================================================================================-->
+</head>
+<body>
+
+    <div class="limiter">
+        <div class="container-table100">
+            <div class="wrap-table100">
+              
+                <div class="titre">
+                    <label>Liste des films</label>
+                </div>
+                <div class="table100 ver1 m-b-110">
+                    <div class="table100-head">
+                        <table>
+                            <thead>
+                                <tr class="row100 head">
+                                    <th class="cell100 column1">Titre</th>
+                                    <th class="cell100 column2">Genre</th>
+                                    <th class="cell100 column3">Duree</th>
+                                    <th class="cell100 column4">Prix</th>
+                                    <th class="cell100 column5">Détails</th>
+                                </tr>
+                            </thead>
+                        </table>
+                    </div>
+
+                    <div class="table100-body js-pscroll">
+                        <table>
+                            <tbody>
+
+                                @foreach (var film in ViewBag.data)
+                                {
+                                    
+                                <tr class="row100 body">
+                                    <td class="cell100 column1">@film.titre</td>
+                                    <td class="cell100 column2">@film.genre</td>
+                                    <td class="cell100 column3">@film.duree</td>
+                                    <td class="cell100 column4">@film.prix DH</td>
+                                    <td><a href="~/Views/Login/Details.cshtml">Link</a></td>
+                                </tr>
+                                }
+                                </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!--===============================================================================================-->
+    <script src="~/vendor/jquery/jquery-3.2.1.min.js"></script>
+    <!--===============================================================================================-->
+    <script src="~/vendor/bootstrap/js/popper.js"></script>
+    <script src="~/vendor/bootstrap/js/bootstrap.min.js"></script>
+    <!--===============================================================================================-->
+    <script src="~/vendor/select2/select2.min.js"></script>
+    <!--===============================================================================================-->
+    <script src="~/vendor/perfect-scrollbar/perfect-scrollbar.min.js"></script>
+    <script>
+        $('.js-pscroll').each(function () {
+            var ps = new PerfectScrollbar(this);
+
+            $(window).on('resize', function () {
+                ps.update();
+            })
+        });
+
+
+    </script>
+    <!--===============================================================================================-->
+    <script src="~/js/main.js"></script>
+
+</body>
+</html>
